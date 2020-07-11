@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0de64887978df649919517752b36cfc, type: 3}
+  m_Name: SpikeBall
+  m_EditorClassIdentifier: 
+  hazardPrefab: {fileID: 9129774581142306894, guid: 09610575654757540bd94013279c0618,
+    type: 3}
+  commonality: 10
+  timeFloor: 60

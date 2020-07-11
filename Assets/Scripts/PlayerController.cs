@@ -87,6 +87,10 @@ public class PlayerController : MonoBehaviour
             scale.x = Mathf.Sign(rb2d.velocity.x);
             transform.localScale = scale;
         }
+        else if (Grounded)
+        {
+            processMovement(Vector2.right * transform.localScale.x * -1);
+        }
     }
 
     void FixedUpdate()

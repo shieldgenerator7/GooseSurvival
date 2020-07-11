@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6467488643949507144}
   - component: {fileID: 1700995629518495588}
   - component: {fileID: 1582409882693980259}
+  - component: {fileID: 1230745171234811875}
   - component: {fileID: 5173643137509805029}
   m_Layer: 0
   m_Name: hazard_barrel
@@ -28,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7127399686913623028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.6709704, y: -1.6815044, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7201743331357306998}
@@ -132,6 +133,32 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.6031947, y: 0.6803596}
   m_EdgeRadius: 0
+--- !u!61 &1230745171234811875
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7127399686913623028}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.010035545, y: 0.050658524}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0}
+    oldSize: {x: 0.694508, y: 0.791762}
+    newSize: {x: 0.694508, y: 0.791762}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.4897831, y: 0.1575166}
+  m_EdgeRadius: 0
 --- !u!114 &5173643137509805029
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,6 +171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45c81c3e44436c04d87df35364b39b1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  duration: 10
 --- !u!1001 &2846915889368566747
 PrefabInstance:
   m_ObjectHideFlags: 0

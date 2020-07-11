@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class Hazard : MonoBehaviour
 {
+    public float duration = 10;
+
+    private float startTime = 0;
+    private bool active = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -13,7 +18,25 @@ public class Hazard : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (startTime > 0)
+        {
+            if (Time.time > startTime + duration)
+            {
+                if (active)
+                {
+                    active = false;
+                    new List<Collider2D>(GetComponents<Collider2D>())
+                        .ForEach(coll => Destroy(coll));
+                    gameObject.AddComponent<Rigidbody2D>();
+                }
+                else{
+                    if (Time.time > startTime + duration + 2)
+                    {
+                        Destroy(gameObject);
+                    }
+                }
+            }
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -24,6 +47,7 @@ public class Hazard : MonoBehaviour
         {
             //Make it unmovable
             Destroy(GetComponent<Rigidbody2D>());
+            startTime = Time.time;
         }
     }
 
