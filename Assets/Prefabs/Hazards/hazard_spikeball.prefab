@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 6280613382800924803}
   - component: {fileID: 2761190442770422149}
   - component: {fileID: 1475999476646435392}
+  - component: {fileID: 3099920373705448920}
+  - component: {fileID: 4394497016176448581}
   m_Layer: 0
   m_Name: hazard_spikeball
   m_TagString: Untagged
@@ -115,12 +117,40 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.4}
   serializedVersion: 2
   m_Radius: 0.361681
+--- !u!58 &3099920373705448920
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9129774581142306894}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.08414316}
+  serializedVersion: 2
+  m_Radius: 0.028455496
+--- !u!114 &4394497016176448581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9129774581142306894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45c81c3e44436c04d87df35364b39b1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4679318064433425208
 PrefabInstance:
   m_ObjectHideFlags: 0
