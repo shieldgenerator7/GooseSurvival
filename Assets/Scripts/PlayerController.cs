@@ -63,7 +63,7 @@ public class PlayerController : MonoBehaviour
         coll2d = GetComponent<Collider2D>();
         animator = GetComponent<Animator>();
         playerControls = new PlayerControls();
-        playerControls.PlayerMap.Move.performed += processMovement;
+        //playerControls.PlayerMap.Move.performed += processMovement;
         playerControls.PlayerMap.Jump.performed +=
             iacbc => processJump(true);
         playerControls.PlayerMap.Jump.canceled +=
@@ -107,6 +107,11 @@ public class PlayerController : MonoBehaviour
     {
         Vector2 inputDir = obj.ReadValue<Vector2>();
 
+        processMovement(inputDir);
+    }
+
+    void processMovement(Vector2 inputDir)
+    {
         //Movement Input
         moveSpeed = inputDir.x * maxMoveSpeed * speedFactor;
     }
@@ -129,6 +134,23 @@ public class PlayerController : MonoBehaviour
             if (rb2d.velocity.y > 0)
             {
                 rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
+            }
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.GetContact(0).point.y > transform.position.y + 0.1f)
+        {
+            Vector2 dir = Vector2.right * transform.localScale.x * -1;
+            processMovement(dir);
+        }
+        else
+        {
+            if (rb2d.velocity.x == 0)
+            {
+                Vector2 dir = Vector2.right * transform.localScale.x;
+                processMovement(dir);
             }
         }
     }
