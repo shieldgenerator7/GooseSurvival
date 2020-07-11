@@ -252,8 +252,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxMoveSpeed: 3
-  maxJumpFactor: 2
-  jumpDuration: 1
+  maxJumpFactor: 10
+  jumpDuration: 0.1
   groundTestDistance: 0.1
 --- !u!95 &142581533
 Animator:
