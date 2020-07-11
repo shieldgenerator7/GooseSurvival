@@ -29,10 +29,10 @@ public class Hazard : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        PlayerController pc = collision.gameObject.GetComponent<PlayerController>();
-        if (pc)
+        PlayerFear fear = collision.gameObject.GetComponent<PlayerFear>();
+        if (fear)
         {
-            pc.maxMoveSpeed *= 2f;
+            fear.Fear += 1;
             Destroy(gameObject);
         }
     }

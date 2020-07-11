@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
         set
         {
             moveSpeed /= _speedFactor;
-            _speedFactor = Mathf.Clamp(value, 0.1f, 10);
+            _speedFactor = Mathf.Clamp(value, 0.1f, 100);
             moveSpeed *= _speedFactor;
         }
     }
