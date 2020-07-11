@@ -41,14 +41,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
-                },
-                {
-                    ""name"": ""Stash"",
-                    ""type"": ""Button"",
-                    ""id"": ""52cbf9dd-188d-4d64-83ed-0536539dfd96"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -216,39 +208,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""action"": ""Throw"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""c5a8992a-7c0c-40cc-8854-0f079a830947"",
-                    ""path"": ""<Keyboard>/k"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Stash"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""11a0591b-e220-4616-8fca-1af1a03d877f"",
-                    ""path"": ""<Gamepad>/buttonNorth"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Stash"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""6db4f583-2309-41c7-ae61-373c388dcfa6"",
-                    ""path"": ""<Mouse>/rightButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Stash"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -260,7 +219,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_PlayerMap_Move = m_PlayerMap.FindAction("Move", throwIfNotFound: true);
         m_PlayerMap_Jump = m_PlayerMap.FindAction("Jump", throwIfNotFound: true);
         m_PlayerMap_Throw = m_PlayerMap.FindAction("Throw", throwIfNotFound: true);
-        m_PlayerMap_Stash = m_PlayerMap.FindAction("Stash", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -313,7 +271,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private readonly InputAction m_PlayerMap_Move;
     private readonly InputAction m_PlayerMap_Jump;
     private readonly InputAction m_PlayerMap_Throw;
-    private readonly InputAction m_PlayerMap_Stash;
     public struct PlayerMapActions
     {
         private @PlayerControls m_Wrapper;
@@ -321,7 +278,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         public InputAction @Move => m_Wrapper.m_PlayerMap_Move;
         public InputAction @Jump => m_Wrapper.m_PlayerMap_Jump;
         public InputAction @Throw => m_Wrapper.m_PlayerMap_Throw;
-        public InputAction @Stash => m_Wrapper.m_PlayerMap_Stash;
         public InputActionMap Get() { return m_Wrapper.m_PlayerMap; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -340,9 +296,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Throw.started -= m_Wrapper.m_PlayerMapActionsCallbackInterface.OnThrow;
                 @Throw.performed -= m_Wrapper.m_PlayerMapActionsCallbackInterface.OnThrow;
                 @Throw.canceled -= m_Wrapper.m_PlayerMapActionsCallbackInterface.OnThrow;
-                @Stash.started -= m_Wrapper.m_PlayerMapActionsCallbackInterface.OnStash;
-                @Stash.performed -= m_Wrapper.m_PlayerMapActionsCallbackInterface.OnStash;
-                @Stash.canceled -= m_Wrapper.m_PlayerMapActionsCallbackInterface.OnStash;
             }
             m_Wrapper.m_PlayerMapActionsCallbackInterface = instance;
             if (instance != null)
@@ -356,9 +309,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Throw.started += instance.OnThrow;
                 @Throw.performed += instance.OnThrow;
                 @Throw.canceled += instance.OnThrow;
-                @Stash.started += instance.OnStash;
-                @Stash.performed += instance.OnStash;
-                @Stash.canceled += instance.OnStash;
             }
         }
     }
@@ -368,6 +318,5 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnThrow(InputAction.CallbackContext context);
-        void OnStash(InputAction.CallbackContext context);
     }
 }
