@@ -39,7 +39,7 @@ public class HazardSpawner : MonoBehaviour
         }
         if (timer.TimeElapsed % 10 < Time.deltaTime)
         {
-            float min = 0.1f;
+            float min = 0.5f;
             float max = 5;
             float maxTime = 180;
             spawnDelay = (1 - (timer.TimeElapsed / maxTime)) * (max - min) + min;

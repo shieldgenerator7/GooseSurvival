@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 4233153960310331960}
   - component: {fileID: 4233153960310331961}
   - component: {fileID: 4233153960310331962}
-  - component: {fileID: 4233153960310331963}
-  - component: {fileID: 4233153960310331964}
   - component: {fileID: 4233153960310331911}
+  - component: {fileID: 4233153960310331964}
+  - component: {fileID: 4233153960310331963}
   - component: {fileID: 4233153960310331910}
   m_Layer: 0
   m_Name: goose1
@@ -105,38 +105,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &4233153960310331963
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4233153960310331965}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c1f4007da58f7d45a2cd962c47d210a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxMoveSpeed: 3
-  maxJumpFactor: 10
-  jumpDuration: 0.1
-  groundTestDistance: 0.1
---- !u!70 &4233153960310331964
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4233153960310331965}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.025498658, y: 0.7631579}
-  m_Size: {x: 0.46817213, y: 1.5263158}
-  m_Direction: 0
 --- !u!50 &4233153960310331911
 Rigidbody2D:
   serializedVersion: 4
@@ -154,10 +122,42 @@ Rigidbody2D:
   m_AngularDrag: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!70 &4233153960310331964
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4233153960310331965}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.025498658, y: 0.7631579}
+  m_Size: {x: 0.46817213, y: 1.5263158}
+  m_Direction: 0
+--- !u!114 &4233153960310331963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4233153960310331965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c1f4007da58f7d45a2cd962c47d210a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxMoveSpeed: 3
+  maxJumpFactor: 20
+  jumpDuration: 0.05
+  groundTestDistance: 0.1
 --- !u!114 &4233153960310331910
 MonoBehaviour:
   m_ObjectHideFlags: 0

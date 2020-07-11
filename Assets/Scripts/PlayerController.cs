@@ -125,10 +125,19 @@ public class PlayerController : MonoBehaviour
         //Jump Input
         if (jump)
         {
-            if (jumpStartTime <= 0 && Grounded)
+            if (jumpStartTime <= 0)
             {
                 jumpStartTime = Time.time;
                 jumpFactor = maxJumpFactor;
+                if (!Grounded)
+                {
+                    GetComponent<PlayerFear>().Fear += 0.2f;
+                }
+                //Stop moving downward
+                if (rb2d.velocity.y < 0)
+                {
+                    rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
+                }
             }
         }
         else
@@ -144,7 +153,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.GetContact(0).point.y > transform.position.y + 0.1f)
+        if (collision.GetContact(0).point.y > transform.position.y)
         {
             Vector2 dir = Vector2.right * transform.localScale.x * -1;
             processMovement(dir);
