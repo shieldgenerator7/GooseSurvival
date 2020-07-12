@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hazardPrefab: {fileID: 7127399686913623028, guid: 469e3616b7fbddb43b83587175521c4d,
     type: 3}
-  commonality: 10
-  timeFloor: 0
+  commonality: 1
+  timeFloor: 20

@@ -15,4 +15,4 @@ MonoBehaviour:
   hazardPrefab: {fileID: 4935590712004997172, guid: 373537ef721a32f4f9ea90eebfc1866f,
     type: 3}
   commonality: 10
-  timeFloor: 20
+  timeFloor: 0
