@@ -55,8 +55,11 @@ public class Hazard : MonoBehaviour
         PlayerFear fear = collision.gameObject.GetComponent<PlayerFear>();
         if (fear)
         {
-            fear.Fear += 1;
-            fear.stun();
+            if (!fear.Invincible)
+            {
+                fear.Fear += 1;
+                fear.stun();
+            }
             despawn();
         }
     }

@@ -34,6 +34,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4233153960973784013}
+  - {fileID: 3972171157232856344}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -176,6 +177,57 @@ MonoBehaviour:
   maxSpeedFactor: 4
   fearDrainPerSecond: 0.2
   invincibleDuration: 1
+  barUpdater: {fileID: 0}
+--- !u!1 &6950232886695002048
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3972171157232856344}
+  - component: {fileID: 1986334597712614409}
+  m_Layer: 0
+  m_Name: SweatSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3972171157232856344
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6950232886695002048}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.046, y: 1.318, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4233153960310331960}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1986334597712614409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6950232886695002048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a54b6e8b1ce0394eaba736b706ae987, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sweatPrefab: {fileID: 1851515521834104830, guid: 012ce1be8696ec74a96df8ecb6bb0294,
+    type: 3}
+  spawnDelay: 0.01
+  groupSpawnDelay: 0.5
+  initialForce: 2
+  angularForce: 25
+  angularVariance: 1
 --- !u!1001 &9136909280837691488
 PrefabInstance:
   m_ObjectHideFlags: 0
