@@ -26,6 +26,11 @@ public class PlayerFear : MonoBehaviour
                 barUpdater.setValue(_fear, maxFear);
             }
             sweatSpawner.Play = (_fear > 0);
+            if (_fear >= maxFear)
+            {
+                FindObjectOfType<GameOver>().playEndScene(transform.position);
+                gameObject.SetActive(false);
+            }
         }
     }
 

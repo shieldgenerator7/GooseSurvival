@@ -224,6 +224,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sweatPrefab: {fileID: 1851515521834104830, guid: 012ce1be8696ec74a96df8ecb6bb0294,
     type: 3}
+  inUI: 0
   spawnDelay: 0.01
   groupSpawnDelay: 0.5
   initialForce: 2
@@ -244,12 +245,12 @@ PrefabInstance:
     - target: {fileID: 4932564801989491629, guid: 4d54c6b1713e2c044a75493bf4b3bc35,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.15
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4932564801989491629, guid: 4d54c6b1713e2c044a75493bf4b3bc35,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.22
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4932564801989491629, guid: 4d54c6b1713e2c044a75493bf4b3bc35,
         type: 3}
@@ -259,17 +260,17 @@ PrefabInstance:
     - target: {fileID: 4932564801989491629, guid: 4d54c6b1713e2c044a75493bf4b3bc35,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4932564801989491629, guid: 4d54c6b1713e2c044a75493bf4b3bc35,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4932564801989491629, guid: 4d54c6b1713e2c044a75493bf4b3bc35,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4932564801989491629, guid: 4d54c6b1713e2c044a75493bf4b3bc35,
         type: 3}

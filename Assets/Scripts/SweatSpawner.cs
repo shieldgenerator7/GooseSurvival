@@ -7,6 +7,7 @@ public class SweatSpawner : MonoBehaviour
     public GameObject sweatPrefab;
 
     public bool inUI = false;
+    [SerializeField]
     private bool _play = false;
     public bool Play
     {
@@ -76,9 +77,10 @@ public class SweatSpawner : MonoBehaviour
         GameObject sweat = Instantiate(sweatPrefab);
         if (!inUI)
         {
+            Vector3 savedScale = sweat.transform.localScale;
             sweat.transform.parent = transform;
             sweat.transform.localPosition = Vector3.zero;
-            sweat.transform.localScale = Vector3.one;
+            sweat.transform.localScale = savedScale;
         }
         else
         {
