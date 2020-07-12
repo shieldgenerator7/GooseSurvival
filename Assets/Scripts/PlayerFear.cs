@@ -10,16 +10,19 @@ public class PlayerFear : MonoBehaviour
     public float fearDrainPerSecond = 0.2f;
     public float invincibleDuration = 1;
 
+    public BarUpdater barUpdater;
+
     private float _fear;
     public float Fear
     {
         get => _fear;
         set
         {
-            if (value < _fear || Invincible)
+            if (value < _fear || !Invincible)
             {
                 _fear = Mathf.Clamp(value, 0, maxFear);
                 pc.speedFactor = (_fear / maxFear) * (maxSpeedFactor - minSpeedFactor) + minSpeedFactor;
+                barUpdater.setValue(_fear, maxFear);
             }
         }
     }
@@ -41,6 +44,7 @@ public class PlayerFear : MonoBehaviour
     {
         pc = GetComponent<PlayerController>();
         animator = GetComponent<Animator>();
+        Fear = 0;
     }
 
     // Update is called once per frame
