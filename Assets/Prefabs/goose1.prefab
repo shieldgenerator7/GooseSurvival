@@ -140,8 +140,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.034858838, y: 0.71956635}
-  m_Size: {x: 0.4011083, y: 1.4257193}
+  m_Offset: {x: 0, y: 0.44683075}
+  m_Size: {x: 0.36844537, y: 0.88024807}
   m_Direction: 0
 --- !u!114 &4233153960310331963
 MonoBehaviour:
@@ -175,6 +175,7 @@ MonoBehaviour:
   minSpeedFactor: 1
   maxSpeedFactor: 4
   fearDrainPerSecond: 0.2
+  invincibleDuration: 1
 --- !u!1001 &9136909280837691488
 PrefabInstance:
   m_ObjectHideFlags: 0

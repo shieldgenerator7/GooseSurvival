@@ -32,11 +32,13 @@ public class PlayerFear : MonoBehaviour
     }
 
     private PlayerController pc;
+    private Animator animator;
 
     // Start is called before the first frame update
     void Start()
     {
         pc = GetComponent<PlayerController>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -46,10 +48,19 @@ public class PlayerFear : MonoBehaviour
         {
             Fear -= fearDrainPerSecond * Time.deltaTime;
         }
+        if (invincibleStartTime > 0)
+        {
+            if (!Invincible)
+            {
+                Invincible = false;
+                animator.SetBool("stunned", false);
+            }
+        }
     }
 
     public void stun()
     {
+        animator.SetBool("stunned", true);
         FindObjectOfType<Timer>().freezeTime(1);
         Invincible = true;
     }

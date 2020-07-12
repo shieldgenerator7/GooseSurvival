@@ -166,6 +166,18 @@ public class PlayerController : MonoBehaviour
                 processMovement(dir);
             }
         }
+        if (Grounded)
+        {
+            animator.SetBool("jumping", false);
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (!Grounded)
+        {
+            animator.SetBool("jumping", true);
+        }
     }
 
 }
