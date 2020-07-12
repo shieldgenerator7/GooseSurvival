@@ -70,9 +70,13 @@ public class HazardSpawner : MonoBehaviour
             spawnBounds.min.x,
             spawnBounds.max.x
             );
+        float randY = Random.Range(
+            spawnBounds.min.y,
+            spawnBounds.max.y
+            );
         hazard.transform.position = new Vector2(
             randX,
-            transform.position.y
+            randY
             );
     }
 }
