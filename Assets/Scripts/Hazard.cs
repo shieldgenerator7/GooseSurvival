@@ -25,11 +25,10 @@ public class Hazard : MonoBehaviour
                 if (active)
                 {
                     active = false;
-                    new List<Collider2D>(GetComponents<Collider2D>())
-                        .ForEach(coll => Destroy(coll));
-                    gameObject.AddComponent<Rigidbody2D>();
+                    despawn();
                 }
-                else{
+                else
+                {
                     if (Time.time > startTime + duration + 2)
                     {
                         Destroy(gameObject);
@@ -57,7 +56,18 @@ public class Hazard : MonoBehaviour
         if (fear)
         {
             fear.Fear += 1;
-            Destroy(gameObject);
+            despawn();
         }
+    }
+
+    private void despawn()
+    {
+        new List<Collider2D>(GetComponents<Collider2D>())
+            .ForEach(coll => Destroy(coll));
+        gameObject.AddComponent<Rigidbody2D>();
+        SpriteRenderer sr = GetComponent<SpriteRenderer>();
+        Color color = sr.color;
+        color.a = 0.5f;
+        sr.color = color;
     }
 }
