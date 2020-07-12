@@ -156,6 +156,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c1f4007da58f7d45a2cd962c47d210a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  honkSound: {fileID: 8300000, guid: 3e07db06c0037b04cb69f7a3ab6a93dd, type: 3}
+  stopDuration: 5
   maxMoveSpeed: 3
   maxJumpFactor: 20
   jumpDuration: 0.05
@@ -225,6 +227,7 @@ MonoBehaviour:
   sweatPrefab: {fileID: 1851515521834104830, guid: 012ce1be8696ec74a96df8ecb6bb0294,
     type: 3}
   inUI: 0
+  _play: 0
   spawnDelay: 0.01
   groupSpawnDelay: 0.5
   initialForce: 2

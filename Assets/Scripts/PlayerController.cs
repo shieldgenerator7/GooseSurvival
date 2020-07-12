@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
+    public AudioClip honkSound;
+
     private float _stopStartTime = 0;
     public float stopDuration = 5;
     public bool stop
@@ -156,6 +158,8 @@ public class PlayerController : MonoBehaviour
                 {
                     rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
                 }
+                //Play Sound
+                AudioSource.PlayClipAtPoint(honkSound, transform.position);
             }
         }
         else
