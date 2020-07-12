@@ -6,18 +6,19 @@ public class SweatSpawner : MonoBehaviour
 {
     public GameObject sweatPrefab;
 
-    private bool _play = true;
+    private bool _play = false;
     public bool Play
     {
         get => _play;
         set
         {
-            _play = value;
-            if (_play)
+            if (!_play && value)
             {
                 lastSpawnTime = 0;
                 lastGroupSpawnTime = 0;
+                countThisGroup = 0;
             }
+            _play = value;
         }
     }
     public float spawnDelay = 0.1f;//spawn delay between sweat within a group
@@ -45,8 +46,8 @@ public class SweatSpawner : MonoBehaviour
             {
                 if (Time.time > lastSpawnTime + spawnDelay)
                 {
-                    lastSpawnTime += spawnDelay;
-                    lastGroupSpawnTime = lastSpawnTime;
+                    lastSpawnTime = Time.time;
+                    lastGroupSpawnTime = Time.time;
                     spawnDrop();
                     countThisGroup++;
                 }
@@ -55,7 +56,6 @@ public class SweatSpawner : MonoBehaviour
             {
                 //Spawn next group
                 countThisGroup = 0;
-                lastSpawnTime = Time.time - spawnDelay;
             }
         }
     }

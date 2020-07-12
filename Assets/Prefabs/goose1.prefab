@@ -178,6 +178,7 @@ MonoBehaviour:
   fearDrainPerSecond: 0.2
   invincibleDuration: 1
   barUpdater: {fileID: 0}
+  sweatSpawner: {fileID: 1986334597712614409}
 --- !u!1 &6950232886695002048
 GameObject:
   m_ObjectHideFlags: 0

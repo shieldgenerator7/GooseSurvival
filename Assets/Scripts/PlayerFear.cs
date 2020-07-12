@@ -11,6 +11,7 @@ public class PlayerFear : MonoBehaviour
     public float invincibleDuration = 1;
 
     public BarUpdater barUpdater;
+    public SweatSpawner sweatSpawner;
 
     private float _fear;
     public float Fear
@@ -24,6 +25,7 @@ public class PlayerFear : MonoBehaviour
                 pc.speedFactor = (_fear / maxFear) * (maxSpeedFactor - minSpeedFactor) + minSpeedFactor;
                 barUpdater.setValue(_fear, maxFear);
             }
+            sweatSpawner.Play = (_fear > 0);
         }
     }
 
