@@ -70,5 +70,11 @@ public class Hazard : MonoBehaviour
         Color color = sr.color;
         color.a = 0.5f;
         sr.color = color;
+        //Destroy shadow
+        Shadow shadow = GetComponentInChildren<Shadow>();
+        if (shadow)
+        {
+            Destroy(shadow.gameObject);
+        }
     }
 }
