@@ -31,6 +31,8 @@ public class PlayerFear : MonoBehaviour
         set => invincibleStartTime = (value) ? Time.time : 0;
     }
 
+    private int shouldStun = -1;
+
     private PlayerController pc;
     private Animator animator;
 
@@ -53,15 +55,27 @@ public class PlayerFear : MonoBehaviour
             if (!Invincible)
             {
                 Invincible = false;
+            }
+            if (Time.time > invincibleStartTime + 0.2f)
+            {
                 animator.SetBool("stunned", false);
             }
         }
+        if (shouldStun >= 0)
+        {
+            if (shouldStun == 0)
+            {
+                FindObjectOfType<Timer>().freezeTime(0.5f);
+                Invincible = true;
+            }
+            shouldStun--;
+        }
+
     }
 
     public void stun()
     {
         animator.SetBool("stunned", true);
-        FindObjectOfType<Timer>().freezeTime(1);
-        Invincible = true;
+        shouldStun = 3;
     }
 }
