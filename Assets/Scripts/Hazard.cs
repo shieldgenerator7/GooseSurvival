@@ -52,6 +52,10 @@ public class Hazard : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (!enabled)
+        {
+            return;
+        }
         PlayerFear fear = collision.gameObject.GetComponent<PlayerFear>();
         if (fear)
         {

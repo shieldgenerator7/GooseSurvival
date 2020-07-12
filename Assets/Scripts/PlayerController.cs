@@ -6,7 +6,23 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
-
+    private float _stopStartTime = 0;
+    public float stopDuration = 5;
+    public bool stop
+    {
+        get => _stopStartTime > 0;
+        set
+        {
+            if (value)
+            {
+                _stopStartTime = Time.time;
+            }
+            else
+            {
+                _stopStartTime = 0;
+            }
+        }
+    }
     public float maxMoveSpeed = 3;
     public float maxJumpFactor = 2;
     public float jumpDuration = 1;
@@ -80,6 +96,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        if (stop) { return; }
         //Flip sprite left or right
         if (rb2d.velocity.x != 0)
         {
@@ -95,6 +112,7 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (stop) { return; }
         //Movement
         Vector2 moveDir = rb2d.velocity;
         moveDir.x = moveSpeed;
@@ -148,6 +166,10 @@ public class PlayerController : MonoBehaviour
             {
                 rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
             }
+        }
+        if (_stopStartTime > 0 && Time.time > _stopStartTime + stopDuration)
+        {
+            FindObjectOfType<GameOver>().resetGame();
         }
     }
 

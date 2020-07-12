@@ -29,7 +29,7 @@ public class PlayerFear : MonoBehaviour
             if (_fear >= maxFear)
             {
                 FindObjectOfType<GameOver>().playEndScene(transform.position);
-                gameObject.SetActive(false);
+                gameObject.GetComponent<SpriteRenderer>().enabled = false;
             }
         }
     }
