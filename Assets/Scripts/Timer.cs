@@ -8,6 +8,8 @@ public class Timer : MonoBehaviour
     public TMP_Text text;
 
     private float startTime;
+    private float freezeStartTime;
+    private float freezeDuration;
 
     private bool _play;
     public bool Play
@@ -41,6 +43,14 @@ public class Timer : MonoBehaviour
                 text.text += ".0";
             }
         }
+        if (freezeStartTime > 0)
+        {
+            if (Time.unscaledTime > freezeStartTime + freezeDuration)
+            {
+                Time.timeScale = 1;
+                freezeStartTime = 0;
+            }
+        }
     }
 
     public void startTimer()
@@ -54,5 +64,12 @@ public class Timer : MonoBehaviour
         startTime = 0;
         Play = false;
         text.text = "0.0";
+    }
+
+    public void freezeTime(float duration)
+    {
+        freezeStartTime = Time.unscaledTime;
+        freezeDuration = duration;
+        Time.timeScale = 0;
     }
 }

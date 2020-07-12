@@ -56,6 +56,7 @@ public class Hazard : MonoBehaviour
         if (fear)
         {
             fear.Fear += 1;
+            fear.stun();
             despawn();
         }
     }

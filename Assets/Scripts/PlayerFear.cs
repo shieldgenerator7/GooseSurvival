@@ -7,8 +7,8 @@ public class PlayerFear : MonoBehaviour
     public float maxFear = 10;
     public float minSpeedFactor = 1;
     public float maxSpeedFactor = 4;
-
     public float fearDrainPerSecond = 0.2f;
+    public float invincibleDuration = 1;
 
     private float _fear;
     public float Fear
@@ -16,9 +16,19 @@ public class PlayerFear : MonoBehaviour
         get => _fear;
         set
         {
-            _fear = Mathf.Clamp(value,0,maxFear);
-            pc.speedFactor = (_fear / maxFear) * (maxSpeedFactor - minSpeedFactor) + minSpeedFactor;
+            if (value < _fear || Invincible)
+            {
+                _fear = Mathf.Clamp(value, 0, maxFear);
+                pc.speedFactor = (_fear / maxFear) * (maxSpeedFactor - minSpeedFactor) + minSpeedFactor;
+            }
         }
+    }
+
+    private float invincibleStartTime;
+    public bool Invincible
+    {
+        get => invincibleStartTime > 0 && Time.time <= invincibleStartTime + invincibleDuration;
+        set => invincibleStartTime = (value) ? Time.time : 0;
     }
 
     private PlayerController pc;
@@ -36,5 +46,11 @@ public class PlayerFear : MonoBehaviour
         {
             Fear -= fearDrainPerSecond * Time.deltaTime;
         }
+    }
+
+    public void stun()
+    {
+        FindObjectOfType<Timer>().freezeTime(1);
+        Invincible = true;
     }
 }
