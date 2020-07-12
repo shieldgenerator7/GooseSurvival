@@ -6,6 +6,7 @@ public class SweatSpawner : MonoBehaviour
 {
     public GameObject sweatPrefab;
 
+    public bool inUI = false;
     private bool _play = false;
     public bool Play
     {
@@ -31,10 +32,20 @@ public class SweatSpawner : MonoBehaviour
     private float lastGroupSpawnTime;
     private float countThisGroup = 0;
 
+    private Vector2 rectPosition;
+
     // Start is called before the first frame update
     void Start()
     {
-
+        if (inUI)
+        {
+            rectPosition = Camera.main.WorldToScreenPoint(
+                GetComponent<RectTransform>().TransformPoint(
+                    GetComponent<RectTransform>().position
+                    )
+                );
+            Debug.Log(rectPosition);
+        }
     }
 
     // Update is called once per frame
@@ -63,9 +74,17 @@ public class SweatSpawner : MonoBehaviour
     private void spawnDrop()
     {
         GameObject sweat = Instantiate(sweatPrefab);
-        sweat.transform.parent = transform;
-        sweat.transform.localPosition = Vector3.zero;
-        sweat.transform.localScale = Vector3.one;
+        if (!inUI)
+        {
+            sweat.transform.parent = transform;
+            sweat.transform.localPosition = Vector3.zero;
+            sweat.transform.localScale = Vector3.one;
+        }
+        else
+        {
+            sweat.transform.position = (Vector2)Camera.main.ScreenToWorldPoint(rectPosition);
+            sweat.transform.localScale = transform.localScale;
+        }
         sweat.transform.up = Vector2.down;
         Rigidbody2D rb2dSweat = sweat.GetComponent<Rigidbody2D>();
         float dir = (transform.parent) ? transform.parent.localScale.x : transform.localScale.x;

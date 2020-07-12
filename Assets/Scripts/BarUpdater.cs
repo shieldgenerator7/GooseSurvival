@@ -7,6 +7,7 @@ public class BarUpdater : MonoBehaviour
 {
     public Image bar;
     public Image barUnder;
+    public SweatSpawner sweatSpawner;
     public float maxExpectedIncrease = 2;
     public float minScaleFactor = 0.1f;
     public float maxScaleFactor = 2;
@@ -23,7 +24,7 @@ public class BarUpdater : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -33,8 +34,8 @@ public class BarUpdater : MonoBehaviour
         {
             transform.localScale = Vector3.one * scaleFactor;
             transform.eulerAngles = new Vector3(
-                0, 
-                0, 
+                0,
+                0,
                 Random.Range(shakeDegrees * -1, shakeDegrees)
                 );
         }
@@ -69,5 +70,6 @@ public class BarUpdater : MonoBehaviour
         {
             bar.fillAmount = newValue;
         }
+        sweatSpawner.Play = newValue >= 0.8f;
     }
 }
